@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home evaluation {% endblock %}
+
+{% block head_styles %}
+<link rel="stylesheet" href='{% static "app/styles/form_page.css" %}'>
+<style>
+  .form-poster{
+    background-image: url('{% static "app/assets/homeval.jpg" %}');
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Form poster starts -->
+<div class="form-poster">
+  <div class="fp-container invertme">
+
+    <h1 class="fp-header">HOME EVALUATION</h1>
+    <br>
+    <p class="fp-desc">Know exactly what your home is worth in today's market! Simply complete the form below and you will receive a free comparative market analysis of your home within 24 hours. The report I will send will not only help evaluate your home, but also provide insights into past solds in the area, future predictions, community developments and more!
+    </p>
+  </div>
+</div>
+<!-- Form poster starts -->
+
+<!-- Form wrapper starts -->
+<div class="wrapper">
+  <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" action="{% url 'home_evaluation_form' %}" method="POST">
+    {% csrf_token %}
+    <h3 class="ui dividing header">Home evaluation form</h3>
+    <div class="field">
+      <label>Personal info</label>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" autocorrect="off" name="firstname" placeholder="Enter your first name">
+        </div>
+        <div class="field">
+          <input type="text" autocorrect="off" name="lastname" placeholder="Enter your last name">
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <input type="email" autocorrect="off" name="email" placeholder="Enter your e-mail">
+        </div>
+        <div class="field">
+          <input type="text" autocorrect="off" name="contact" placeholder="Enter your contact number">
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" autocorrect="off" name="address" placeholder="Enter your address">
+        </div>
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="time_frame">
+            <i class="dropdown icon"></i>
+            <div class="default text">When are you planning to move out?</div>
+            <div class="menu">
+              <div class="item" data-value="1">3 months</div>
+              <div class="item" data-value="2">6 months</div>
+              <div class="item" data-value="3">9 months</div>
+              <div class="item" data-value="4">1 year</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <label>Property info</label>
+      <div class="four fields">
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="property_type">
+            <i class="dropdown icon"></i>
+            <div class="default text">Property Type</div>
+            <div class="menu">
+              <div class="item" data-value="1">Detached</div>
+              <div class="item" data-value="2">Semi-detached</div>
+              <div class="item" data-value="3">Townhome</div>
+              <div class="item" data-value="4">Condominium</div>
+              <div class="item" data-value="5">Cottage</div>
+              <div class="item" data-value="6">Land</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="property_size">
+            <i class="dropdown icon"></i>
+            <div class="default text">Approx. size</div>
+            <div class="menu">
+              <div class="item" data-value="1">0 - 1000 sq.ft.</div>
+              <div class="item" data-value="2">1000 - 2000 sq.ft.</div>
+              <div class="item" data-value="3">2000 - 3000 sq.ft.</div>
+              <div class="item" data-value="4">3000 - 4000 sq.ft.</div>
+              <div class="item" data-value="5">4000 - 5000 sq.ft.</div>
+              <div class="item" data-value="6">5000+ sq.ft.</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="property_age">
+            <i class="dropdown icon"></i>
+            <div class="default text">Age of property</div>
+            <div class="menu">
+              <div class="item" data-value="1">5 years</div>
+              <div class="item" data-value="2">10 years</div>
+              <div class="item" data-value="3">15 years</div>
+              <div class="item" data-value="4">20 years</div>
+              <div class="item" data-value="5">25 years</div>
+              <div class="item" data-value="6">30 years</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="lawsuit">
+            <i class="dropdown icon"></i>
+            <div class="default text">In law suite</div>
+            <div class="menu">
+              <div class="item" data-value="1">Yes</div>
+              <div class="item" data-value="2">No</div>
+              <div class="item" data-value="3">Potential</div>
+              <div class="item" data-value="4">Unsure</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="four fields">
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="bedrooms">
+            <i class="dropdown icon"></i>
+            <div class="default text">Bedrooms</div>
+            <div class="menu">
+              <div class="item" data-value="0">0</div>
+              <div class="item" data-value="1">1</div>
+              <div class="item" data-value="2">2</div>
+              <div class="item" data-value="3">3</div>
+              <div class="item" data-value="4">4</div>
+              <div class="item" data-value="5">5</div>
+              <div class="item" data-value="6">6</div>
+              <div class="item" data-value="7">7</div>
+              <div class="item" data-value="8">8</div>
+              <div class="item" data-value="9">9</div>
+              <div class="item" data-value="10">10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="bathrooms">
+            <i class="dropdown icon"></i>
+            <div class="default text">Bathrooms</div>
+            <div class="menu">
+              <div class="item" data-value="0">0</div>
+              <div class="item" data-value="1">0.5</div>
+              <div class="item" data-value="2">1</div>
+              <div class="item" data-value="3">1.5</div>
+              <div class="item" data-value="4">2</div>
+              <div class="item" data-value="5">2.5</div>
+              <div class="item" data-value="6">3</div>
+              <div class="item" data-value="7">3.5</div>
+              <div class="item" data-value="8">4</div>
+              <div class="item" data-value="9">4.5</div>
+              <div class="item" data-value="10">5</div>
+              <div class="item" data-value="11">5.5</div>
+              <div class="item" data-value="12">6</div>
+              <div class="item" data-value="13">6.5</div>
+              <div class="item" data-value="14">7</div>
+              <div class="item" data-value="15">7.5</div>
+              <div class="item" data-value="16">8</div>
+              <div class="item" data-value="17">8.5</div>
+              <div class="item" data-value="18">9</div>
+              <div class="item" data-value="19">9.5</div>
+              <div class="item" data-value="20">10</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="basement">
+            <i class="dropdown icon"></i>
+            <div class="default text">Basement type</div>
+            <div class="menu">
+              <div class="item" data-value="1">Unfinished</div>
+              <div class="item" data-value="2">Finished</div>
+              <div class="item" data-value="3">Partial finished</div>
+              <div class="item" data-value="4">Full finished</div>
+              <div class="item" data-value="5">Walkout</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="ui selection dropdown">
+            <input type="hidden" name="garage">
+            <i class="dropdown icon"></i>
+            <div class="default text">Garage</div>
+            <div class="menu">
+              <div class="item" data-value="1">No</div>
+              <div class="item" data-value="2">Carport</div>
+              <div class="item" data-value="3">Single</div>
+              <div class="item" data-value="4">Double</div>
+              <div class="item" data-value="5">Triple</div>
+              <div class="item" data-value="6">4 cars</div>
+              <div class="item" data-value="7">5 cars</div>
+              <div class="item" data-value="8">6 cars</div>
+              <div class="item" data-value="9">7 cars</div>
+              <div class="item" data-value="10">8 cars</div>
+              <div class="item" data-value="11">9 cars</div>
+              <div class="item" data-value="12">10 cars</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="field"><textarea name="message" placeholder="Your message"></textarea></div>
+    </div>
+    <div>
+      <input type="submit" class="ui primary right floated shadowed button" value="Submit">
+    </div>
+  </form>
+  <br>
+  <br>
+  <br>
+</div>
+<!-- Form poster ends -->
+{% endblock body %}
+
+{% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
+
+  $('.ui.form').form({
+    fields: {
+      firstname          : 'empty',
+      lastname           : 'empty',
+      email              : 'empty',
+      contact            : 'empty',
+      address            : 'empty',
+      time_frame         : 'empty',
+      property_type      : 'empty',
+      property_size      : 'empty',
+      property_age       : 'empty',
+      lawsuit            : 'empty',
+      bedrooms           : 'empty',
+      bathrooms          : 'empty',
+      basement           : 'empty',
+      garage             : 'empty',
+      message            : ['empty','maxLength[400]'],
+
+    }
+  });
+</script>
+{% endblock end_scripts %}
+        

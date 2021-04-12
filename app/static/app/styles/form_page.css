@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&display=swap');
+
+form{
+    max-width: 1100px !important;
+    margin: 0px auto;
+}
+.form-poster{
+    width: 100%;
+    background-color: rgb(32, 32, 32);
+    min-height:auto;
+    margin: 0px auto;
+    background-image: url('../assets/preconst.jpg');
+    background-size: cover;
+    background-position: center 80%;
+}
+.primary.button{
+    margin-right: 0px !important;
+}
+.fp-container{
+    display: flex;
+    flex-flow: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.4));
+    background-position: right bottom;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding:  80px;
+    text-align: justify;
+    box-sizing: border-box;
+}
+.fp-container *{
+    max-width: 1300px;
+}
+
+.fp-header{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.1ch;
+    font-weight: 200;
+    text-align: center;
+    font-size: 5em;
+}
+
+.fp-desc{
+    font-size: 1.25em;
+}
+.wrapper{
+    padding: 30px 60px;
+}
+@media screen and (max-width:687px) {
+    .fp-container{
+        padding: 30px;
+    }
+
+    .fp-header{
+        font-size: 2em;
+        letter-spacing: 0.2ch;
+    }
+    .fp-desc{
+        font-size: 1.1em;
+    }
+}
+@media screen and (max-width:392px) {
+    .fp-container{
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 30px;
+    }
+
+    .fp-header{
+        font-size: 1.6em;
+        letter-spacing: 0.2ch;
+    }
+    .fp-desc{
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (min-height:660px) {
+    .fp-container{
+        height: 660px;
+    }
+
+
+}

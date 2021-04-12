@@ -1,0 +1,190 @@
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Home Portal</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'app/styles/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/styles/micromodal.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/styles/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'app/styles/stylesheet.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}">
+        <script src="{% static 'app/scripts/node_modules/donleeve/dist/donleeve.min.js' %}"></script>
+        <script src="{% static 'app/scripts/node_modules/active-timeout.js/dist/active-timeout.min.js' %}"></script>
+        <script src="{% static 'app/scripts/node_modules/micromodal/dist/micromodal.min.js' %}"></script>
+    </head>
+    <body>
+        <!-- Responsive menu starts -->
+        <div class="ui right sidebar inverted vertical menu">
+            <a href="{% url 'index' %}" class="item">Home</a>
+            <!-- <a href="#" class="item">Real estate services</a> -->
+            <a href="{% url 'pre_construction_form' %}" class="item">Pre-construction</a>
+            <a href="{% url 'area_alerts_form' %}" class="item">Home evaluation</a>
+            <a href="{% url 'home_evaluation_form' %}" class="item">Area alerts</a>
+            <a href="{% url 'about' %}" class="item">About</a>
+        </div>
+        <!-- Responsive menu ends -->
+        <!-- Main body "pusher" div starts -->
+        <div class="pusher">
+            <!-- Larger resolutions menu starts -->
+            <div id="nav" class="ui fixed menu">
+                <div class="right menu">
+                    <a href="{% url 'index' %}" class=" right nomobile item ">HOME</a>
+                    <!-- <a href="#" class=" right nomobile item ">REAL ESTATE SERVICES</a> -->
+                    <a href="{% url 'pre_construction_form' %}" class=" right nomobile item ">PRE-CONSTRUCTION</a>
+                    <a href="{% url 'area_alerts_form' %}" class=" right nomobile item ">AREA ALERTS</a>
+                    <a href="{% url 'home_evaluation_form' %}" class=" right nomobile item ">HOME EVALUATION</a>
+                    <a href="{% url 'about' %}" class=" right nomobile item ">ABOUT</a>
+                    <a id="mobile_item" class="toc right item mobile item ">
+                        <i class="sidebar icon"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- Larger resolutions menu ends -->
+
+        <!-- Landing page starts -->
+            <div id="landing-container">
+            <video muted autoplay loop>
+                <source src="{% static 'app/assets/backdrop.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="landing-overlay">
+                <form method="POST" action="{% url 'referred_pre_construction_form' %}" id="landing-search-wrapper" action="{% url 'projects' %}" method="POST">
+                    {% csrf_token %}
+                    <input id="landing-search" type="text" name="searchme" placeholder="Search for a project, location, etc...">
+                    <button type="submit" id="landing-search-button" style="font-weight: 800;" >SEARCH</button>
+                </form>
+            </div>
+            </div>
+        <!-- Landing page ends -->
+
+            <h1 class="ui center aligned header" style="font-size: 2.5em;margin:60px 0px 40px 0px ">HOT PROJECTS</h1>
+
+        <!-- Cards section starts -->
+            <div class="ui mini centered cards inverted" id="projects-container">
+                {% if latest_projects_list %}
+                  {% for project in latest_projects_list %}
+                  <a class="card shadow" href="{% url 'show_me' project.slug %}">
+                    <img src="media/{{ project.project_cover }}">
+                    <div class="content">
+                          <div class="header">
+                            {{ project.project_name | upper }}
+                          </div>
+                          <div class="description" style="font-weight: 600;">
+                            {{ project.project_location | upper }}
+                          </div>
+                          <div class="extra content" style="color:aliceblue; opacity:0.8;text-align:center">
+                              
+                              {% if project.starts_at > 0 %}
+                                  Starting from the ${{ project.starts_at }}s
+                              {% elif project.starts_at < 0 %}
+                                  Sold out
+                              {% endif %}
+                          </div>
+                    </div>
+                  </a>
+                  {% endfor %}
+                {% endif %}
+            </div>
+        <!-- Cards section ends -->
+
+        <!-- Micromodal div starts -->
+            <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+                <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                    <div class="modal__header">
+                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                        <img class="modal-image" src="{% static 'app/assets/3-musks.jpg' %}" alt="newsletter-image">
+                    <div class="modal-sub">
+                        <h2 class="modal__title" id="modal-1-title">
+                            BE THE FIRST TO KNOW ABOUT NEWEST OPPORTUNITIES
+                          </h2>
+                          <p>Sign up to our newsletter and we'll make sure the hottest deals in town find their way to your mailbox.</p>
+                          <input type="email" onfocusout="checkfilled(this)" name="email" value="" placeholder="Enter your e-mail.">
+                          <footer class="modal__footer">
+                            <button class="modal__btn modal__btn-primary">Sign Up</button>
+                          </footer>
+                    </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        <!-- Micromodal div ends -->
+
+        </div>
+        <!-- Main body "pusher" div ends -->
+        <!-- Common scripts starts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
+        <script>
+            //MicroModal.init();
+            //Donleeve.init({
+            //}, function (e) {
+            //    MicroModal.show('modal-1')
+            //});
+            $('#landing-container').visibility({
+              once       : false,
+              continuous : true,
+              onPassing  : function(calculations) {
+                  toggled = 0
+                  if (calculations.percentagePassed > 0.4) {
+                      $('#nav').removeClass('inverted')
+                      $('#nav').removeClass('borderless')
+                  }else{
+                      $('#nav').addClass('borderless')
+                      $('#nav').addClass('inverted')
+                    
+                  }
+                ;
+              }
+            })
+
+            $('.ui.sidebar').sidebar({
+                transition: 'overlay',
+            }).sidebar('attach events', '#mobile_item');
+
+        </script>
+        <!-- Common scripts ends -->
+        
+        {% if messages %}
+            {% for toast in messages %}
+              
+              {% if toast.tags == 'error' %}
+              <script>
+                $('body').toast({
+                   title: 'Oops...',
+                   class: 'errorbox red',
+                   displayTime: 5000,
+                   position: 'bottom right',
+                   showProgress: 'bottom',
+                   message: 'Please enter all the details correctly.'
+                 });
+                </script>
+            {% elif toast.tags == 'success' %}
+                <script>
+                    $('body').toast({
+                       title: 'Great!',
+                       class: 'successbox blue',
+                       displayTime: 5000,
+                       position: 'bottom right',
+                       showProgress: 'bottom',
+                       message: "Your form has been submitted successfully, we'll get in touch with you soon."
+                     });
+                </script>
+            {% elif toast.tags == 'warning' %}
+                <script>
+                    $('body').toast({
+                       title: 'Server error',
+                       displayTime: 5000,
+                       position: 'bottom right',
+                       showProgress: 'bottom',
+                       message: "It seems there's some issue, please try again later. Email us at thehomeportalteam@gmail.com if the issue persists.  "
+                     });
+                </script>
+            {% endif %}
+                  
+            {% endfor %}
+        {% endif %}
+       
+    </body>
+
+</html>

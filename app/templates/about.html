@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Pre-construction {% endblock %}
+
+<!-- {% block head_styles %}
+<link rel="stylesheet" href='{% static "app/styles/form_page.css" %}'>
+{% endblock %} -->
+
+{% block body %}
+<br><br>
+
+<div class="ui segment" style="border: none;box-shadow:none">
+  <div class="ui two column very relaxed stackable grid">
+      <div class="column" id="about-content" style="padding: 70px;">
+        <h3 class="ui dividing header">MEET MEGAN </h3>
+        <p class="small text">Megan is a second generation Realtor who prides herself for her extensive market knowledge and her unmatched devotion to clients. She brings ten years of experience in real estate. Her success is indicated by her positive referrals, repeat business backed by candid and genuine advice.</p>
+        <p class="small text">Although formally educated in healthcare management, Megan found her calling in Real estate. Her passion for real estate is apparent through excellent communication skills and a gregarious, friendly approach. Although Megan spend her childhood in Bombay, had a brief stint in Los Angeles, she now calls Canada home. Exposure to different cultures gives Megan a competitive edge.</p>
+        <p class="small text">She has honed her emotional intelligence and is a creative problem solver. Megan leads her clients to make an informative decision by staying connected and empowering them with relevant information. She likes to win for her clients by providing them with the best outcome in every transaction. Fun fact: When she’s not busy managing her real estate team, she is teaching yoga and meditation as a Registered Yoga Teacher!</p>
+        <h3 style="text-align: center;">MEGAN REKHI</h3>
+        <h5 style="line-height: 1.3em;text-align: center;margin:0px">SALES REPRESENTATIVE</h5>
+        <h5 style="line-height: 1.3em;text-align: center;margin:0px">HOMELIFE/MIRACLE REALTY LTD.</h4>
+      </div>
+      
+      <div class="column" style="padding: 70px; display:flex;justify-content:center; align-items:center">
+        <img src="{% static 'app/assets/megan_the_boss.jpg' %}" class="subimg natural-shadow" alt="Megan Rekhi">
+      </div>
+  </div>
+</div>
+
+{% endblock body %}
+
+{% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
+</script>
+{% endblock end_scripts %}
+        

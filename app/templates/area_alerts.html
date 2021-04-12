@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Area alerts {% endblock %}
+
+{% block head_styles %}
+<link rel="stylesheet" href='{% static "app/styles/form_page.css" %}'>
+<style>
+  .form-poster{
+    background-image: url('{% static "app/assets/arealerts.jpg" %}');
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<!-- Form poster starts -->
+<div class="form-poster">
+  <div class="fp-container invertme">
+
+    <h1 class="fp-header">AREA ALERTS</h1>
+    <br>
+    <p class="fp-desc" style="text-align: center;">Get instant notifications when your neighbours sell and find out what they sold for! Know the market trends in your area.</p>
+  </div>
+</div>
+<!-- Form poster starts -->
+
+<!-- Form wrapper starts -->
+<div class="wrapper">
+  <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" action="{% url 'area_alerts_form' %}" method="POST">
+    {% csrf_token %}
+    <h3 class="ui dividing header">Area alerts</h3>
+    <div class="field">
+      <label>Personal info</label>
+      <div class="two fields">
+        <div class="field">
+          <input type="text" autocorrect="off" name="firstname" placeholder="Enter your first name">
+        </div>
+        <div class="field">
+          <input type="text" autocorrect="off" name="lastname" placeholder="Enter your last name">
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <input type="email" autocorrect="off" name="email" placeholder="Enter your e-mail">
+        </div>
+        <div class="field">
+          <input type="text" autocorrect="off" name="contact" placeholder="Enter your contact number">
+        </div>
+      </div>
+      <label>Address</label>
+      <div class="field">
+        <input type="text" name="address"  placeholder="Enter your address">
+      </div>
+      
+    </div>
+    <div>
+      <input type="submit" class="ui primary right floated shadowed button" value="Submit">
+    </div>
+  </form>
+  <br>
+  <br>
+  <br>
+</div>
+<!-- Form poster ends -->
+
+{% endblock body %}
+
+{% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
+
+  $('.ui.form').form({
+    fields: {
+      firstname           : 'empty',
+      lastname            : 'empty',
+      email               : 'empty',
+      contact             : 'empty',
+      address             : 'empty',
+    }
+  });
+</script>
+{% endblock end_scripts %}
+        
