@@ -8,3 +8,4 @@ for idx, project in enumerate(Project.objects.order_by('pub_date')):
     ...:     project.pub_date = space[::-1][idx]
     ...:     project.save()
 
+Here's a sample text. Check if you can see me on the other end
