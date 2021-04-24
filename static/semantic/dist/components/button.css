@@ -1339,7 +1339,7 @@
 
 .ui.primary.buttons .button,
 .ui.primary.button {
-  background-color: #E56B6F;
+  background-color: #9b1d20;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
@@ -1350,19 +1350,19 @@
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
-  background-color: #e84e53;
+  background-color: #8b1416;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:focus,
 .ui.primary.button:focus {
-  background-color: #ee393f;
+  background-color: #820d10;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.primary.buttons .button:active,
 .ui.primary.button:active {
-  background-color: #dd4045;
+  background-color: #701517;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1370,7 +1370,7 @@
 .ui.primary.buttons .active.button:active,
 .ui.primary.active.button,
 .ui.primary.button .active.button:active {
-  background-color: #ec4b50;
+  background-color: #8e1114;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -1379,36 +1379,36 @@
 .ui.basic.primary.buttons .button,
 .ui.basic.primary.button {
   background: transparent;
-  -webkit-box-shadow: 0 0 0 1px #E56B6F inset;
-          box-shadow: 0 0 0 1px #E56B6F inset;
-  color: #E56B6F;
+  -webkit-box-shadow: 0 0 0 1px #9b1d20 inset;
+          box-shadow: 0 0 0 1px #9b1d20 inset;
+  color: #9b1d20;
 }
 .ui.basic.primary.buttons .button:hover,
 .ui.basic.primary.button:hover {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #e84e53 inset;
-          box-shadow: 0 0 0 1px #e84e53 inset;
-  color: #e84e53;
+  -webkit-box-shadow: 0 0 0 1px #8b1416 inset;
+          box-shadow: 0 0 0 1px #8b1416 inset;
+  color: #8b1416;
 }
 .ui.basic.primary.buttons .button:focus,
 .ui.basic.primary.button:focus {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #ee393f inset;
-          box-shadow: 0 0 0 1px #ee393f inset;
-  color: #e84e53;
+  -webkit-box-shadow: 0 0 0 1px #820d10 inset;
+          box-shadow: 0 0 0 1px #820d10 inset;
+  color: #8b1416;
 }
 .ui.basic.primary.buttons .active.button,
 .ui.basic.primary.active.button {
   background: transparent ;
-  -webkit-box-shadow: 0 0 0 1px #ec4b50 inset;
-          box-shadow: 0 0 0 1px #ec4b50 inset;
-  color: #dd4045;
+  -webkit-box-shadow: 0 0 0 1px #8e1114 inset;
+          box-shadow: 0 0 0 1px #8e1114 inset;
+  color: #701517;
 }
 .ui.basic.primary.buttons .button:active,
 .ui.basic.primary.button:active {
-  -webkit-box-shadow: 0 0 0 1px #dd4045 inset;
-          box-shadow: 0 0 0 1px #dd4045 inset;
-  color: #dd4045;
+  -webkit-box-shadow: 0 0 0 1px #701517 inset;
+          box-shadow: 0 0 0 1px #701517 inset;
+  color: #701517;
 }
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
@@ -1496,21 +1496,21 @@
   background: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
-  color: #E56B6F;
+  color: #9b1d20;
 }
 .ui.tertiary.primary.buttons .button:hover,
 .ui.tertiary.primary.buttons button:hover,
 .ui.tertiary.primary.button:hover {
-  -webkit-box-shadow: inset 0 -0.2em 0 #d46266;
-          box-shadow: inset 0 -0.2em 0 #d46266;
-  color: #d46266;
+  -webkit-box-shadow: inset 0 -0.2em 0 #7b2325;
+          box-shadow: inset 0 -0.2em 0 #7b2325;
+  color: #7b2325;
 }
 .ui.tertiary.primary.buttons .button:focus,
 .ui.tertiary.primary.buttons .tertiary.button:focus,
 .ui.tertiary.primary.button:focus {
-  -webkit-box-shadow: inset 0 -0.2em 0 #d84f53;
-          box-shadow: inset 0 -0.2em 0 #d84f53;
-  color: #d84f53;
+  -webkit-box-shadow: inset 0 -0.2em 0 #741b1d;
+          box-shadow: inset 0 -0.2em 0 #741b1d;
+  color: #741b1d;
 }
 .ui.tertiary.primary.buttons .active.button,
 .ui.tertiary.primary.buttons .tertiary.active.button,
@@ -1518,9 +1518,9 @@
 .ui.tertiary.primary.buttons .button:active,
 .ui.tertiary.primary.buttons .tertiary.button:active,
 .ui.tertiary.primary.button:active {
-  -webkit-box-shadow: inset 0 -0.2em 0 #ff373e;
-          box-shadow: inset 0 -0.2em 0 #ff373e;
-  color: #ec4b50;
+  -webkit-box-shadow: inset 0 -0.2em 0 #9e0105;
+          box-shadow: inset 0 -0.2em 0 #9e0105;
+  color: #8e1114;
 }
 .ui.secondary.buttons .button,
 .ui.secondary.button {

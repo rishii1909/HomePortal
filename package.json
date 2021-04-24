@@ -1,7 +1,7 @@
 {
   "name": "thehomeportal",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Home Portal",
   "main": "index.js",
   "dependencies": {
     "fomantic-ui": "^2.8.7"
@@ -10,6 +10,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Hrushikesh Chapke",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://rishii1909:Akb7qH7yRaBzY9S@github.com/rishii1909/TheHomePortal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rishii1909/TheHomePortal/issues"
+  },
+  "homepage": "https://github.com/rishii1909/TheHomePortal#readme"
 }

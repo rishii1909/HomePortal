@@ -11,6 +11,7 @@ urlpatterns = [
     # path('welcome_here/<slug>', ProjectDetailView.as_view(), name='welcome' ),
     path('pre_construction',views.pre_construction, name='pre_construction_form'),
     path('referred_pre_construction',views.referred_pre_construction, name='referred_pre_construction_form'),
+    path('subscribe',views.subscribe, name='subscribe'),
     path('area_alerts',views.area_alerts, name='area_alerts_form'),
     path('home_evaluation',views.home_evaluation, name='home_evaluation_form'),
     path('unoproject',views.unoproject, name='uno'),

@@ -33,6 +33,19 @@ font-style: normal;
 {% endblock body %}
 
 {% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
 
+  $('.ui.form').form({
+    fields: {
+      first_name  : 'empty',
+      primary_email : 'empty',
+      primary_number  : 'empty',
+      are_you_a_realtor : 'empty',
+      are_you_working_with_a_realtor  : 'empty',
+    }
+  });
+</script>
 {% endblock end_scripts %}
         

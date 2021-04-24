@@ -27,11 +27,11 @@
 
 <!-- Form wrapper starts -->
 <div class="wrapper">
-  <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" action="{% url 'area_alerts_form' %}" method="POST">
+  <form method="POST" action="{% url 'area_alerts_form' %}" class="ui form" action="{% url 'area_alerts_form' %}" method="POST">
     {% csrf_token %}
-    <h3 class="ui dividing header">Area alerts</h3>
+    <h3 class="ui dividing header">Area Alerts</h3>
     <div class="field">
-      <label>Personal info</label>
+      <label>Contact Information</label>
       <div class="two fields">
         <div class="field">
           <input type="text" autocorrect="off" name="firstname" placeholder="Enter your first name">
@@ -48,7 +48,7 @@
           <input type="text" autocorrect="off" name="contact" placeholder="Enter your contact number">
         </div>
       </div>
-      <label>Address</label>
+      <label>Address Information</label>
       <div class="field">
         <input type="text" name="address"  placeholder="Enter your address">
       </div>

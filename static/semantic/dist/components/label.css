@@ -664,36 +664,36 @@ a.ui.basic.label:hover {
 
 .ui.primary.labels .label,
 .ui.ui.ui.primary.label {
-  background-color: #E56B6F;
-  border-color: #E56B6F;
+  background-color: #9b1d20;
+  border-color: #9b1d20;
   color: rgba(255, 255, 255, 0.9);
 }
 
 /* Link */
 .ui.primary.labels a.label:hover,
 a.ui.ui.ui.primary.label:hover {
-  background-color: #e84e53;
-  border-color: #e84e53;
+  background-color: #8b1416;
+  border-color: #8b1416;
   color: #FFFFFF;
 }
 
 /* Ribbon */
 .ui.ui.ui.primary.ribbon.label {
-  border-color: #dd4045;
+  border-color: #701517;
 }
 
 /* Basic */
 .ui.basic.labels .primary.label,
 .ui.ui.ui.basic.primary.label {
   background: none #FFFFFF;
-  border-color: #E56B6F;
-  color: #E56B6F;
+  border-color: #9b1d20;
+  color: #9b1d20;
 }
 .ui.basic.labels a.primary.label:hover,
 a.ui.ui.ui.basic.primary.label:hover {
   background: none #FFFFFF;
-  border-color: #e84e53;
-  color: #e84e53;
+  border-color: #8b1416;
+  color: #8b1416;
 }
 
 /* Inverted */

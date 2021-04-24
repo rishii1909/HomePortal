@@ -26,9 +26,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'og(!ms#k3xd&zq@q3gep+snn$mp1^uga&b9(x61g9q!011zx*p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['homeportal.ca','www.homeportal.ca', '151.106.108.159', 'localhost']
 
 
 # Application definition
@@ -39,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
+    #'livereload',
     'django.contrib.staticfiles',
-    'django_google_maps',
+    #'django_google_maps',
     'django_cleanup.apps.CleanupConfig',
     'app.apps.AppConfig',
     'django_extensions',
@@ -55,9 +59,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'livereload.middleware.LiveReloadScript',
+    #'livereload.middleware.LiveReloadScript',
 ]
-ALLOWED_HOSTS = ['localhost','thehomeportal.loca.lt', '3265d8180ecd.ngrok.io']
 ROOT_URLCONF = 'TheHomePortal.urls'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -128,9 +131,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),    
-]
-FOLLOW_UP_BOSS_API_KEY = '0c5f1956a19332727b07e98840abecbf43218c'
+#STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+
 GOOGLE_MAPS_API_KEY = 'AIzaSyBvTpwlbXC_t41eASnlOCn3ElilYvSHH6U'
-GOOGLE_MAPS_API_KEY = 'AIzaSyBz09lnyM_eTZcXp3jOUbyCIBvZc0vo-hE'
+
+#additional configs
+
+#SECURE_SSL_REDIRECT = True
+#SESSION_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
+

@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from .models import Project, Searchform, pre_construction, area_alerts, home_evaluation
-from .forms import fetch_referred_preconst,fetch_preconst, fetch_arealerts, fetch_home_evaluation
+from .forms import fetch_referred_preconst,fetch_preconst, fetch_arealerts, fetch_home_evaluation, fetch_subscription
 from .dicts import pre_construction_, home_evaluation_
 import json
 from django.contrib import messages
@@ -20,7 +20,7 @@ def preconst(request):
     return render(request, 'otherpage.html')
 
 def fetch_few_projects():
-    return Project.objects.exclude(project_visibility = 1).order_by('pub_date')[:18]
+    return Project.objects.exclude(project_visibility = 1).order_by('-pub_date')[:18]
 
 def index(request):
     context = {'latest_projects_list': fetch_few_projects}
@@ -141,10 +141,29 @@ def about(request):
     return render(request, 'about.html')
     
 def unoproject(request):
-    obj = Project.objects.all()[:1]
-    json_data = serialize("json", obj)
-    return render(request,'pre.html',{'json' : json_data})
+   
+    return render(request)
 
 class ProjectDetailView(DetailView):
     model = Project
     template_name = 'landing_page.html'
+
+
+def subscribe(request):
+    if request.method == 'POST':
+        insane = fetch_subscription(request.POST)
+        if insane.is_valid():
+            sane = insane.cleaned_data
+            el = fetch_subscription(sane)
+            if el.save():
+                messages.success(request, True)
+                return HttpResponseRedirect('/')
+            else:
+                messages.warning(request, True)
+                return HttpResponseRedirect('/')                
+        else:
+            messages.error(request, True)
+            return HttpResponseRedirect('/')
+
+    elif request.method == 'GET':
+        return render(request, 'index.html')

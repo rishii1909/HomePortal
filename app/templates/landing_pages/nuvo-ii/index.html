@@ -456,57 +456,7 @@ Transit station nearby the condos</div></div></div></div></div></div></div></div
 	  }
 	}    
 </script>
-<script src='../../www.google.com/recaptcha/api9347.js?onload=myReccaptchaCallBack&amp;render=explicit'></script>
-<script>
-      var myReccaptchaCallBack = function() {
-        //Render the recaptcha1 on the element with ID "recaptcha..."
-        $('.g-recaptcha-i').each(function() {
-            recapID = this.id;
-            var recaptcha1 = grecaptcha.render(recapID, {
-              'sitekey' : '6LcMZQYaAAAAACKO5p6McVKkAdrm6V0lcpNMucdG', //Replace this with your Site key
-              'theme' : 'light'
-            });
-        });
-                              };
- </script>
-	<script type="text/javascript">
-var _rfq = _rfq || [];
-(function() {
-var url = 'https://w4rapp.com/';
-_rfq.push(['setSiteAccount', 'SA-A5EF-0FF8']);
-_rfq.push(['setTrackerUrl', url+'im.gif']);
-_rfq.push(['trackPageview']);
-_rfq.push(['enableLinkTracking']);
-var rf = document.createElement('script');
-rf.type = 'text/javascript';rf.async = true;
-rf.src = url+'rf.js';
-var script = document.getElementsByTagName('script')[0];
-script.parentNode.insertBefore(rf, script);
-})();
-</script>	<script>
-	    function myCallback(api) {
-        
-        var visitor = api.getVisitor();
-        //var visitorId = parseInt("0x"+visitor.id);
-        var visitorId = visitor.id;
-		console.log(visitorId+'__'+parseInt("0x"+visitor.id));
-        visitor.toString();
-					var data = "w4rapp=Y&visitorId="+visitorId+"&rf_nm=";
-		        $.ajax({
-            url: "ajax_w4rapp_visitor_profile",
-            type: 'POST',
-            data: data,
-            timeout: 200000,   
-            success: function(data) {
-            },
-            error: function(e) {
-                console.log("Server failure! Is the server turned off?");
-            }
-        });   
-		        // do stuff with visitor
-    }
-    _rfq.push(['getApi', myCallback]);
-	</script>
+
 
 
 <a href="#" class="pageUp _pc_ _mobile_" ><i class="ico-up-arrow-thick"></i></a>
@@ -516,4 +466,3 @@ script.parentNode.insertBefore(rf, script);
 
 
 
-http://localhost/show_me/grand-central-mimico?first_name=&primary_email=&primary_number=&desired_location=&desired_property_type=&desired_price_range=&are_you_a_realtor=&are_you_working_with_a_realtor=&customFrmId=7&csrfKey=327342cb35996d63e08240e2db16c4e6&forminputtype=&smartTrack=Y&grouptag=&w4rForms=csf&contact_owner_id=&googletrackingcodes=&gTrackEventAction=&fbEventSolo=

@@ -40,9 +40,9 @@ class pre_construction(models.Model):
     lastname = models.CharField('lastname', max_length=100)
     email = models.EmailField('email',max_length=100)
     contact = models.CharField("contact",max_length=15)
-    property_type = models.CharField('property type', max_length=100)
-    price_range = models.CharField('price range', max_length=100)
-    time_frame = models.CharField('time frame', max_length=100)
+    property_type = models.CharField('property type', max_length=100,blank=True)
+    price_range = models.CharField('price range', max_length=100,blank=True)
+    time_frame = models.CharField('time frame', max_length=100,blank=True)
     is_realtor = models.CharField('is a realtor',max_length=10)
     works_with_realtor = models.CharField('works with a realtor',max_length=10)
 
@@ -56,13 +56,13 @@ class referred_pre_construction(models.Model):
     first_name = models.CharField('firstname', max_length=100)
     primary_email = models.EmailField('email',max_length=100)
     primary_number = models.CharField("contact",max_length=15)
-    desired_location = models.CharField("contact",max_length=15)
-    desired_property_type = models.CharField('property type', max_length=100)
-    desired_price_range = models.CharField('price range', max_length=100)
-    timeline_to_purchase = models.CharField('time frame', max_length=100)
+    desired_location = models.CharField("contact",max_length=15, blank=True)
+    desired_property_type = models.CharField('property type', max_length=100, blank=True)
+    desired_price_range = models.CharField('price range', max_length=100, blank=True)
+    timeline_to_purchase = models.CharField('time frame', max_length=100, blank=True)
     are_you_a_realtor = models.CharField('is a realtor',max_length=10)
     are_you_working_with_a_realtor = models.CharField('works with a realtor',max_length=50)
-    referrer_project = models.CharField('Form submitted from',max_length=50)
+    referrer_project = models.CharField('Form submitted from',max_length=50,blank=True)
 
     def __str__(self):
         return self.first_name
@@ -73,18 +73,18 @@ class home_evaluation(models.Model):
     firstname = models.CharField('firstname', max_length=100)
     lastname = models.CharField('lastname', max_length=100)
     email = models.EmailField('email',max_length=100)
-    address = models.CharField("address",max_length=150)
+    address = models.CharField("address",max_length=150,blank=True)
     contact = models.CharField("contact",max_length=15)
-    time_frame = models.CharField('time frame', max_length=100)
-    property_type = models.CharField('property type', max_length=100)
-    property_size = models.CharField('property size', max_length=100)
-    property_age = models.CharField('property age', max_length=100)
-    lawsuit = models.CharField('lawsuit', max_length=100)
-    bedrooms = models.CharField('bedrooms',max_length=2)
-    bathrooms = models.CharField('bathrooms', max_length=2)
-    basement = models.CharField('basement type', max_length=100)
-    garage = models.CharField('garage capacity', max_length=100)
-    message = models.CharField('message', max_length = 400)
+    time_frame = models.CharField('time frame', max_length=100,blank=True)
+    property_type = models.CharField('property type', max_length=100,blank=True)
+    property_size = models.CharField('property size', max_length=100,blank=True)
+    property_age = models.CharField('property age', max_length=100,blank=True)
+    lawsuit = models.CharField('lawsuit', max_length=100,blank=True)
+    bedrooms = models.CharField('bedrooms',max_length=2,blank=True)
+    bathrooms = models.CharField('bathrooms', max_length=2,blank=True)
+    basement = models.CharField('basement type', max_length=100,blank=True)
+    garage = models.CharField('garage capacity', max_length=100,blank=True)
+    message = models.CharField('message', max_length = 400,blank=True)
     
     def __str__(self):
         return self.firstname + ' ' + self.lastname
@@ -106,7 +106,16 @@ class area_alerts(models.Model):
         verbose_name = "| Area alerts - response"
 
 
-    
+class subscription(models.Model):
+    name = models.CharField('firstname', max_length=100)
+    contact = models.CharField("contact",max_length=15, blank=True)
+    email = models.EmailField('email',max_length=100)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "| Subscription"
+
 
 
     

@@ -11,6 +11,15 @@
         <script src="{% static 'app/scripts/node_modules/donleeve/dist/donleeve.min.js' %}"></script>
         <script src="{% static 'app/scripts/node_modules/active-timeout.js/dist/active-timeout.min.js' %}"></script>
         <script src="{% static 'app/scripts/node_modules/micromodal/dist/micromodal.min.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1EVS9E668"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X1EVS9E668');
+</script>
     </head>
     <body>
         <!-- Responsive menu starts -->
@@ -18,10 +27,13 @@
             <a href="{% url 'index' %}" class="item">Home</a>
             <!-- <a href="#" class="item">Real estate services</a> -->
             <a href="{% url 'pre_construction_form' %}" class="item">Pre-construction</a>
-            <a href="{% url 'area_alerts_form' %}" class="item">Home evaluation</a>
-            <a href="{% url 'home_evaluation_form' %}" class="item">Area alerts</a>
+            <a href="{% url 'home_evaluation_form' %}" class="item">Home evaluation</a>
+            <a href="{% url 'area_alerts_form' %}" class="item">Area alerts</a>
             <a href="{% url 'about' %}" class="item">About</a>
+            <div class="item"> 
+                <a href="{% url 'pre_construction_form' %}"  class="ui primary button">REGISTER</a>
             </div>
+        </div>
         <!-- Responsive menu ends -->
         <!-- Main body "pusher" div starts -->
         <div class="pusher">
@@ -34,6 +46,10 @@
                     <a href="{% url 'area_alerts_form' %}" class=" right nomobile item ">AREA ALERTS</a>
                     <a href="{% url 'home_evaluation_form' %}" class=" right nomobile item ">HOME EVALUATION</a>
                     <a href="{% url 'about' %}" class=" right nomobile item ">ABOUT</a>
+                    <div class="nomobile item" >
+                        <a href="{% url 'pre_construction_form' %}"  class="ui black  button">REGISTER</a>
+                        <!-- <a href="" style="background-color:#decdf5" class="ui blue primary button">jsadjbsd</a> -->
+                    </div>
                     <a id="mobile_item" class="toc right item mobile item ">
                         <i class="sidebar icon"></i>
                     </a>
@@ -96,7 +112,7 @@
                 {% endif %}
             </div>
         <!-- Cards section ends -->
-
+            {% include 'footer.html' %}
         <!-- Micromodal div starts -->
             <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
                 <div class="modal__overlay" tabindex="-1" data-micromodal-close>
@@ -121,6 +137,7 @@
         <!-- Micromodal div ends -->
 
         </div>
+        {% include 'footer.html' %}
         <!-- Main body "pusher" div ends -->
         <!-- Common scripts starts -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

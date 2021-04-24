@@ -1,0 +1,106 @@
+<div class="wrapper" style="margin: 0px auto;">
+    <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" style="margin: 0px auto;">
+      {% csrf_token %}
+      <input type="hidden" name="referrer_project" value="{{ object.project_name }}">
+      <h3 class="ui dividing header">PRE - CONSTRUCTION FORM</h3>
+      <span class="ui red text " style="float: right;">* Required fields</span>
+      <div class="field">
+        <label>Contact Information <span class="ui red text">*</span></label>
+        <div class="three fields">
+          <div class="field">
+            <input type="text" autocorrect="off" name="first_name" placeholder="Enter your first name">
+          </div>
+          <div class="field">
+            <input type="email" autocorrect="off" name="primary_email" placeholder="Enter your e-mail">
+          </div>
+          <div class="field">
+            <input type="text" autocorrect="off" name="primary_number" placeholder="Enter your contact number">
+          </div>
+        </div>
+        <label>Desired Property Information</label>
+        <div class="four fields">
+            <div class="field">
+                <input type="text" autocorrect="off" name="desired_location" placeholder="Enter your desired locations.">
+            </div>
+          <div class="field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="desired_property_type">
+              <i class="dropdown icon"></i>
+              <div class="default text">Desired property type</div>
+              <div class="menu">
+                <div class="item" data-value="1">Detached</div>
+                <div class="item" data-value="2">Semi-detached</div>
+                <div class="item" data-value="4">Townhome</div>
+                <div class="item" data-value="5">Condominium</div>
+                <div class="item" data-value="6">Cottage</div>
+                <div class="item" data-value="7">Land</div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="desired_price_range">
+              <i class="dropdown icon"></i>
+              <div class="default text">Desired price range</div>
+              <div class="menu">
+                <div class="item" data-value="1">&#36;0 - &#36;150,000</div>
+                <div class="item" data-value="2">&#36;150,000 - &#36;250,000</div>
+                <div class="item" data-value="2">&#36;250,000 - &#36;350,000</div>
+                <div class="item" data-value="2">&#36;350,000 - &#36;450,000</div>
+                <div class="item" data-value="2">&#36;450,000 - &#36;550,000</div>
+                <div class="item" data-value="2">&#36;550,000 - &#36;650,000</div>
+                <div class="item" data-value="2">&#36;650,000 - &#36;750,000</div>
+                <div class="item" data-value="2">&#36;750,000 - &#36;850,000</div>
+                <div class="item" data-value="2">&#36;850,000 - &#36;950,000</div>
+                <div class="item" data-value="2">&#36;950,000 - &#36;1,250,000</div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="timeline_to_purchase">
+              <i class="dropdown icon"></i>
+              <div class="default text">Timeline to purchase</div>
+              <div class="menu">
+                <div class="item" data-value="1">3 months</div>
+                <div class="item" data-value="2">6 months</div>
+                <div class="item" data-value="4">9 months</div>
+                <div class="item" data-value="5">1 year</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label>Realtor Information <span class="ui red text">*</span></label>
+        <div class="two fields">
+          <div class="field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="are_you_a_realtor">
+              <i class="dropdown icon"></i>
+              <div class="default text">Are you a realtor?</div>
+              <div class="menu">
+                <div class="item" data-value="1">Yes</div>
+                <div class="item" data-value="0">No</div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="are_you_working_with_a_realtor">
+              <i class="dropdown icon"></i>
+              <div class="default text">Are you working with a realtor?</div>
+              <div class="menu">
+                <div class="item" data-value="1">Yes</div>
+                <div class="item" data-value="0">No</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <input type="submit" class="ui primary right floated shadowed button" value="Submit">
+      </div>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div>

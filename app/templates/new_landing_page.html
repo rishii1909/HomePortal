@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} {{ object.project_name }} {% endblock %}
+
+{% block head_styles %}
+<link rel="stylesheet" href='{% static "app/styles/form_page.css" %}'>
+<link href="/static/app/migrated_assets/uploads/theme/w4r_756_20210324024830_20210324025842_v60934106777.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" href="https://use.typekit.net/zbu8bgs.css">
+<style>
+  
+  .Aileron.Light{
+    font-family: aileron, sans-serif;
+
+font-weight: 300;
+
+font-style: normal;
+}
+.userCunstom a{
+  color: #e7a668;
+}
+.imgautoWH.w4rfs_fadedIn, .w4rfs_fadedIn{
+  width: 100%;
+}
+.w4rImg_equal{
+  width: 100% !important;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+{% include object.project_path %}
+{% include "widgets/pre-constr.html" %}
+{% endblock body %}
+
+{% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
+
+  $('.ui.form').form({
+    fields: {
+      firstname           : 'empty',
+      lastname            : 'empty',
+      email               : 'empty',
+      contact             : 'empty',
+      property_type       : 'empty',
+      price_range         : 'empty',
+      time_frame          : 'empty',
+      is_realtor          : 'empty',
+      works_with_realtor  : 'empty'
+    }
+  });
+</script>
+{% endblock end_scripts %}
+        

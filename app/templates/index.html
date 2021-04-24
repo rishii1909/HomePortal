@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="We are pre-construction home experts. Learn how to make more money, sleep better, and profit from investing in the Ontario real estate market. Make better decisions." />
         <title>The Home Portal</title>
         <link rel="stylesheet" type="text/css" href="{% static 'app/styles/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'app/styles/micromodal.css' %}">
@@ -11,6 +12,14 @@
         <script src="{% static 'app/scripts/node_modules/donleeve/dist/donleeve.min.js' %}"></script>
         <script src="{% static 'app/scripts/node_modules/active-timeout.js/dist/active-timeout.min.js' %}"></script>
         <script src="{% static 'app/scripts/node_modules/micromodal/dist/micromodal.min.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X1EVS9E668"></script>
+    <script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+  	gtag('config', 'G-X1EVS9E668');
+    </script>
     </head>
     <body>
         <!-- Responsive menu starts -->
@@ -18,9 +27,12 @@
             <a href="{% url 'index' %}" class="item">Home</a>
             <!-- <a href="#" class="item">Real estate services</a> -->
             <a href="{% url 'pre_construction_form' %}" class="item">Pre-construction</a>
-            <a href="{% url 'area_alerts_form' %}" class="item">Home evaluation</a>
-            <a href="{% url 'home_evaluation_form' %}" class="item">Area alerts</a>
+            <a href="{% url 'home_evaluation_form' %}" class="item">Home evaluation</a>
+            <a href="{% url 'area_alerts_form' %}" class="item">Area alerts</a>
             <a href="{% url 'about' %}" class="item">About</a>
+            <div class="item"> 
+                <a href="{% url 'pre_construction_form' %}"  class="ui primary button">REGISTER</a>
+            </div>
         </div>
         <!-- Responsive menu ends -->
         <!-- Main body "pusher" div starts -->
@@ -34,9 +46,13 @@
                     <a href="{% url 'area_alerts_form' %}" class=" right nomobile item ">AREA ALERTS</a>
                     <a href="{% url 'home_evaluation_form' %}" class=" right nomobile item ">HOME EVALUATION</a>
                     <a href="{% url 'about' %}" class=" right nomobile item ">ABOUT</a>
+                    <div class=" nomobile item">
+                        <a href="{% url 'pre_construction_form' %}" id='register-button' class="ui white inverted button">REGISTER</a>
+                    </div>
                     <a id="mobile_item" class="toc right item mobile item ">
                         <i class="sidebar icon"></i>
                     </a>
+                    
                 </div>
             </div>
             <!-- Larger resolutions menu ends -->
@@ -47,11 +63,12 @@
                 <source src="{% static 'app/assets/backdrop.mp4' %}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div id="landing-overlay">
-                <form method="POST" action="{% url 'referred_pre_construction_form' %}" id="landing-search-wrapper" action="{% url 'projects' %}" method="POST">
+            <div id="landing-overlay" style="flex-flow: column;">
+                <h1 class="ui inverted centered header">FIND YOUR NEW CONSTRUCTION HOME</h1>
+                <form method="POST" action="{% url 'projects' %}" id="landing-search-wrapper" action="{% url 'projects' %}" method="POST">
                     {% csrf_token %}
                     <input id="landing-search" type="text" name="searchme" placeholder="Search for a project, location, etc...">
-                    <button type="submit" id="landing-search-button" style="font-weight: 800;" >SEARCH</button>
+                    <button type="submit" id="landing-search-button" style="font-weight: 600;" >Search</button>
                 </form>
             </div>
             </div>
@@ -86,29 +103,9 @@
                 {% endif %}
             </div>
         <!-- Cards section ends -->
-
-        <!-- Micromodal div starts -->
-            <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-                <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-                  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                    <div class="modal__header">
-                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                        <img class="modal-image" src="{% static 'app/assets/3-musks.jpg' %}" alt="newsletter-image">
-                    <div class="modal-sub">
-                        <h2 class="modal__title" id="modal-1-title">
-                            BE THE FIRST TO KNOW ABOUT NEWEST OPPORTUNITIES
-                          </h2>
-                          <p>Sign up to our newsletter and we'll make sure the hottest deals in town find their way to your mailbox.</p>
-                          <input type="email" onfocusout="checkfilled(this)" name="email" value="" placeholder="Enter your e-mail.">
-                          <footer class="modal__footer">
-                            <button class="modal__btn modal__btn-primary">Sign Up</button>
-                          </footer>
-                    </div>
-                      </div>
-                  </div>
-                </div>
-            </div>
-        <!-- Micromodal div ends -->
+	<br><br><br>
+	{% include 'footer.html' %}
+        {% include 'widgets/subscribe.html' %}
 
         </div>
         <!-- Main body "pusher" div ends -->
@@ -116,11 +113,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
         <script>
-            //MicroModal.init();
-            //Donleeve.init({
-            //}, function (e) {
-            //    MicroModal.show('modal-1')
-            //});
+            MicroModal.init();
+            Donleeve.init({
+            }, function (e) {
+                MicroModal.show('modal-1')
+            });
             $('#landing-container').visibility({
               once       : false,
               continuous : true,
@@ -129,9 +126,15 @@
                   if (calculations.percentagePassed > 0.4) {
                       $('#nav').removeClass('inverted')
                       $('#nav').removeClass('borderless')
+                      $('#register-button').removeClass('inverted')
+                      $('#register-button').removeClass('white')
+                      $('#register-button').addClass('black')
                   }else{
                       $('#nav').addClass('borderless')
                       $('#nav').addClass('inverted')
+                      $('#register-button').addClass('inverted')
+                      $('#register-button').addClass('white')
+                      $('#register-button').removeClass('black')
                     
                   }
                 ;

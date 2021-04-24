@@ -3,3 +3,8 @@ dont forget the inline js script in webpage
 lt --port 80 -s thehomeportal
 Z)%TmqX@5vxN{9>e99
 2001rishiRISHI
+
+for idx, project in enumerate(Project.objects.order_by('pub_date')):
+    ...:     project.pub_date = space[::-1][idx]
+    ...:     project.save()
+

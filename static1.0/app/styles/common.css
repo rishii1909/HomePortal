@@ -1,0 +1,83 @@
+
+.modal-screen{
+    background-color: rgba(0, 0, 0, 0.1);
+    top: 0px;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4));
+}
+
+.invertme{
+    color: #eff1f3
+}
+
+.errorbox {
+    background-color: #fae1e2 !important;
+    color: rgba(0, 0, 0, 0.801) !important;
+}
+.successbox {
+    background-color: #d7dce2 !important;
+    color: rgba(0, 0, 0, 0.801) !important;
+}
+.issuebox {
+    background-color: #a79baf !important;
+    color: rgba(0, 0, 0, 0.801) !important;
+}
+.subimg{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 700px;
+    border-radius: 3px;
+}
+.natural-shadow{
+    box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12)
+;
+}
+.small.text{
+    font-size: 1.1em !important;
+}
+
+.shadowed{
+    box-shadow: 0px 2px 5px 0px gray !important;
+    transition: 0.2s ease !important;
+    margin: 5px !important;
+}
+
+#nav.inverted{
+    background-color: #131114a1 !important;
+}
+
+.nomobile{
+    padding: 1em !important;
+}
+
+#nav:not(.inverted) a:hover{
+    background-color: rgba(238, 238, 238, 0.664);
+    color: black;
+    border: 2px black !important;
+}
+
+.mobile{
+    display: none !important;
+}
+
+@media screen and (max-width: 812px) {
+    .mobile {
+        display: block !important;
+    }
+    .nomobile{
+        display: none !important;
+    }
+    #about-content{
+        padding: 20px;
+    }
+  }

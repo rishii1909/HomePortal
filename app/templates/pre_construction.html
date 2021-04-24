@@ -23,11 +23,12 @@
 
 <!-- Form wrapper starts -->
 <div class="wrapper">
-  <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" action="{% url 'pre_construction_form' %}" method="POST">
+  <form method="POST" action="{% url 'pre_construction_form' %}" class="ui form" action="{% url 'pre_construction_form' %}" method="POST">
     {% csrf_token %}
-    <h3 class="ui dividing header">Pre-construction form</h3>
+    <h3 class="ui dividing header">PRE - CONSTRUCTION FORM</h3>
+    <span class="ui red text " style="float: right;">* Required fields</span>
     <div class="field">
-      <label>Personal info</label>
+      <label>Contact Information <span class="ui red text">*</span></label>
       <div class="two fields">
         <div class="field">
           <input type="text" autocorrect="off" name="firstname" placeholder="Enter your first name">
@@ -44,7 +45,7 @@
           <input type="text" autocorrect="off" name="contact" placeholder="Enter your contact number">
         </div>
       </div>
-      <label>Desired property info</label>
+      <label>Desired Property Information</label>
       <div class="three fields">
         <div class="field">
           <div class="ui selection dropdown">
@@ -94,7 +95,7 @@
           </div>
         </div>
       </div>
-      <label>Realtor info</label>
+      <label>Realtor Information <span class="ui red text">*</span></label>
       <div class="two fields">
         <div class="field">
           <div class="ui selection dropdown">
@@ -143,9 +144,6 @@
       lastname            : 'empty',
       email               : 'empty',
       contact             : 'empty',
-      property_type       : 'empty',
-      price_range         : 'empty',
-      time_frame          : 'empty',
       is_realtor          : 'empty',
       works_with_realtor  : 'empty'
     }

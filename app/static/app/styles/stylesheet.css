@@ -37,6 +37,7 @@
     -o-object-position: center;
     object-position: center;
     border-radius: 8px 8px 0px 0px !important;
+    height:auto;
 }
 .ui.inverted.card>.content>.header, .ui.inverted.cards>.card>.content>.header{
     font-size: 1.5em !important;

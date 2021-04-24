@@ -28,11 +28,12 @@
 
 <!-- Form wrapper starts -->
 <div class="wrapper">
-  <form method="POST" action="{% url 'referred_pre_construction_form' %}" class="ui form" action="{% url 'home_evaluation_form' %}" method="POST">
+  <form method="POST" action="{% url 'home_evaluation_form' %}" class="ui form" action="{% url 'home_evaluation_form' %}" method="POST">
     {% csrf_token %}
-    <h3 class="ui dividing header">Home evaluation form</h3>
+    <h3 class="ui dividing header">HOME EVALUATION FORM</h3>
+    <span class="ui red text " style="float: right;">* Required fields</span>
     <div class="field">
-      <label>Personal info</label>
+      <label>Contact Information <span class="ui red text">*</span></label>
       <div class="two fields">
         <div class="field">
           <input type="text" autocorrect="off" name="firstname" placeholder="Enter your first name">
@@ -67,7 +68,7 @@
           </div>
         </div>
       </div>
-      <label>Property info</label>
+      <label>Property Information</label>
       <div class="four fields">
         <div class="field">
           <div class="ui selection dropdown">
@@ -244,17 +245,6 @@
       lastname           : 'empty',
       email              : 'empty',
       contact            : 'empty',
-      address            : 'empty',
-      time_frame         : 'empty',
-      property_type      : 'empty',
-      property_size      : 'empty',
-      property_age       : 'empty',
-      lawsuit            : 'empty',
-      bedrooms           : 'empty',
-      bathrooms          : 'empty',
-      basement           : 'empty',
-      garage             : 'empty',
-      message            : ['empty','maxLength[400]'],
 
     }
   });
