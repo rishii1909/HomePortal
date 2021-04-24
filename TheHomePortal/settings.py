@@ -26,13 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'og(!ms#k3xd&zq@q3gep+snn$mp1^uga&b9(x61g9q!011zx*p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+DEBUG = True
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
-
-ALLOWED_HOSTS = ['homeportal.ca','www.homeportal.ca', '151.106.108.159', 'localhost']
+ALLOWED_HOSTS = ['homeportal.ca','www.homeportal.ca', '151.106.108.159', 'localhost','127.0.0.1' ]
 
 
 # Application definition
@@ -131,16 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
-STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR,'/static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyBvTpwlbXC_t41eASnlOCn3ElilYvSHH6U'
-
-#additional configs
-
-#SECURE_SSL_REDIRECT = True
-#SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_SECURE = True
 
