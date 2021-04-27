@@ -52,9 +52,9 @@ class ShowPhotoInline(admin.TabularInline):
 class express_highlightInline(admin.TabularInline):
     '''Tabular Inline View for express_highlight '''
     model = express_highlight  
-    min_num = 2
+    min_num = 0
     max_num = 20
-    extra = 1
+    extra = 3
 
 @admin.register(express_project)
 class ShowAdmin(admin.ModelAdmin):
