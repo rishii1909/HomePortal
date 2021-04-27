@@ -1,6 +1,9 @@
+admin-multiupload @ git+git://github.com/gkuhn1/django-admin-multiupload.git@a9d640634a679e3c68a5b5966ddfc0aafe159b3d
 asgiref==3.3.1
 beautifulsoup4==4.9.3
 bleach==3.3.0
+dbbackup==0.1.13
+dbbackup-tools==0.1.5
 Django==3.1.7
 django-cleanup==5.1.0
 django-extensions==3.1.2
@@ -15,7 +18,9 @@ packaging==20.9
 Pillow==8.2.0
 pydotplus==2.0.2
 pyparsing==2.4.7
+python-decouple==3.4
 pytz==2021.1
+PyYAML==5.4.1
 six==1.15.0
 soupsieve==2.2.1
 sqlparse==0.4.1

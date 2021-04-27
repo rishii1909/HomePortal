@@ -77,11 +77,15 @@
             <h1 class="ui center aligned header" style="font-size: 2.5em;margin:60px 0px 40px 0px ">HOT PROJECTS</h1>
 
         <!-- Cards section starts -->
+        
             <div class="ui mini centered cards inverted" id="projects-container">
                 {% if latest_projects_list %}
+                {% load thumbnail %}
                   {% for project in latest_projects_list %}
-                  <a class="card shadow" href="{% url 'show_me' project.slug %}">
-                    <img src="media/{{ project.project_cover }}">
+                  
+                      
+                  <a class="card shadow" href=" {% if project.project_type == 'manual' %}{% url 'show_me' project.slug %}{% elif project.project_type == 'auto' %}{% url 'show_project' project.slug %}{% endif %} ">
+                    <img src="{{ project.project_cover | thumbnail_url:'banner' }}">
                     <div class="content">
                           <div class="header">
                             {{ project.project_name | upper }}

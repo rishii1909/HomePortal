@@ -3,6 +3,9 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta_tags %}
+    
+    {% endblock meta_tags %}
     <title>{% block title %}Home{% endblock %} | The Home Portal </title>
     <link rel="shortcut icon" type="image/jpg" href="app/assets/minlogo.png"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/styles/micromodal.css' %}">
@@ -27,6 +30,8 @@ window.widgetTracker("send", "pageview");
 
   	gtag('config', 'G-X1EVS9E668');
 	</script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     {% block head_styles %}
     
     {% endblock head_styles %}
@@ -85,7 +90,6 @@ window.widgetTracker("send", "pageview");
         </div>
         <!-- Main body "pusher" div ends -->
         <!-- Common scripts starts -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
         <script>
             MicroModal.init();

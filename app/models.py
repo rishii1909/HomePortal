@@ -17,9 +17,11 @@ class Project(models.Model):
     project_location = models.CharField("Project location",max_length=100)
     project_cover = models.ImageField(upload_to='Covers', height_field=None, width_field=None, max_length=100)
     pub_date = models.DateTimeField('Publish date', auto_now_add=True)
+    project_type = models.CharField("Project type", max_length=10, default='manual', editable=False)
     slug = models.SlugField(max_length=255, unique=True)
     project_visibility = models.BooleanField("Hidden project", editable='true')
     starts_at = models.IntegerField("Starting price range" )
+    
     def project_path(self):
         rel_url = 'landing_pages/' + self.slug + '/index.html'
         return rel_url
@@ -31,9 +33,50 @@ class Project(models.Model):
         self.slug = slugify(self.project_name)
         super(Project, self).save(*args, **kwargs)
 
-# class project_status(models.Model):
-#     assoc_project = models.ForeignKey("app.Project", verbose_name=("Associated project"), on_delete=models.CASCADE)
-        
+
+class express_project(models.Model):
+    project_name = models.CharField("Project name",max_length=100)
+    project_location = models.CharField("Project location",max_length=100)
+    project_cover = models.ImageField(upload_to='Covers', height_field=None, width_field=None, max_length=None)
+    project_banner = models.ImageField( 'Landing image',upload_to='landing_images', height_field=None, width_field=None, max_length=None)
+    project_co_banner = models.ImageField( 'Sidebar image',upload_to='landing_images', height_field=None, width_field=None, max_length=None)
+    pub_date = models.DateTimeField('Publish date', auto_now_add=True)
+    project_type = models.CharField("Project type", max_length=10, default='auto', editable=False)
+    slug = models.SlugField(max_length=255, unique=True)
+    project_visibility = models.BooleanField("Hidden project", editable='true')
+    starts_at = models.IntegerField("Starting price range")
+    completion_date = models.DateField('Anticipated completion date', blank=True)
+    dep_struct = models.TextField('Deposit structure', max_length=200)
+    project_desc = models.TextField('Project description', max_length=2000, blank=True)
+    property_type = models.CharField('Property type', max_length=50)
+    uni_size_lower = models.IntegerField("Unit size Range - min ")
+    uni_size_upper = models.IntegerField("Unit size Range - max ")
+    
+
+    def __str__(self):
+        return self.project_name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.project_name)
+        super(express_project, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Express project"
+        verbose_name_plural = "Express projects"
+
+
+class express_image(models.Model):
+    image = models.FileField('File', upload_to='serve_images', null=True)
+    project = models.ForeignKey('express_project', related_name='gallery', blank=True, null=True, default=None, on_delete=models.CASCADE)
+
+class express_highlight(models.Model):
+    feature = models.CharField("Highlight", max_length=500)
+    project = models.ForeignKey('express_project', related_name='highlight', blank=True, null=True, default=None, on_delete=models.CASCADE)
+
+
+
+
+
 
 class pre_construction(models.Model):
     firstname = models.CharField('firstname', max_length=100)

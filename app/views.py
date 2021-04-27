@@ -5,22 +5,27 @@ from django.urls import reverse
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
-from .models import Project, Searchform, pre_construction, area_alerts, home_evaluation
+from .models import Project, express_project, Searchform, pre_construction, area_alerts, home_evaluation
 from .forms import fetch_referred_preconst,fetch_preconst, fetch_arealerts, fetch_home_evaluation, fetch_subscription
 from .dicts import pre_construction_, home_evaluation_
 import json
 from django.contrib import messages
+from itertools import chain
+from operator import attrgetter
 
 # import bleach
 
 def otherpage(request):
     return render(request, 'otherpage.html')
 
-def preconst(request):
-    return render(request, 'otherpage.html')
+def joinem(set1,set2,sortby,reverse):
+    return sorted(list(chain(set1,set2)),key=attrgetter(sortby), reverse=reverse)
 
 def fetch_few_projects():
-    return Project.objects.exclude(project_visibility = 1).order_by('-pub_date')[:18]
+    set1 = Project.objects.exclude(project_visibility = 1).order_by('-pub_date')
+    set2 = express_project.objects.exclude(project_visibility = 1).order_by('-pub_date')
+    set3 = sorted(list(chain(set1,set2)),key=attrgetter('pub_date'), reverse=True)
+    return set3
 
 def index(request):
     context = {'latest_projects_list': fetch_few_projects}
@@ -40,9 +45,10 @@ def projects(request):
             search_param = request.POST['searchme']
             if search_param:
                 projects_list = Project.objects.filter(project_name__icontains=search_param) | Project.objects.filter(project_location__icontains=search_param)
-                
-                if projects_list:
-                    context = {'projects_list': projects_list, 'param' : search_param}
+                express_list = express_project.objects.filter(project_name__icontains=search_param) | express_project.objects.filter(project_location__icontains=search_param)
+                final_list = joinem(projects_list,express_list,'pub_date',True)
+                if final_list:
+                    context = {'projects_list': final_list, 'param' : search_param}
                 else:
                     context = {'latest_projects_list': fetch_few_projects, 'param' : search_param}
                 
@@ -147,6 +153,10 @@ def unoproject(request):
 class ProjectDetailView(DetailView):
     model = Project
     template_name = 'landing_page.html'
+
+class ExpressDetailView(DetailView):
+    model = express_project
+    template_name = 'generic_page.html'
 
 
 def subscribe(request):

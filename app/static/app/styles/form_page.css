@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&display=swap');
 
 form{
-    max-width: 1100px !important;
+    max-width: 1300px !important;
     margin: 0px auto;
 }
 .form-poster{
@@ -33,7 +33,7 @@ form{
     box-sizing: border-box;
 }
 .fp-container *{
-    max-width: 1300px;
+    max-width: 1050px;
 }
 
 .fp-header{

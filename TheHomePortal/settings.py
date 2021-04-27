@@ -42,12 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'livereload',
+    'livereload',
     'django.contrib.staticfiles',
     #'django_google_maps',
     'django_cleanup.apps.CleanupConfig',
     'app.apps.AppConfig',
     'django_extensions',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'livereload.middleware.LiveReloadScript',
+    'livereload.middleware.LiveReloadScript'
 ]
 ROOT_URLCONF = 'TheHomePortal.urls'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
@@ -79,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TheHomePortal.wsgi.application'
+# WSGI_APPLICATION = 'TheHomePortal.wsgi.application'
 
 
 # Database
@@ -137,3 +138,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyBvTpwlbXC_t41eASnlOCn3ElilYvSHH6U'
 
+#ALIASES
+
+THUMBNAIL_ALIASES = {
+    "": {
+        "small": {"size": (150,150), "autocrop" : True, "crop" : "smart"},
+        "gallery": {"size": (280,280), "autocrop" : True, "crop" : "smart"},
+        "banner": {"size": (500, 500),},
+    },
+
+}

@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %} {{ object.project_name }} {% endblock %}
+
+{% block head_styles %}
+<link rel="stylesheet" href='{% static "app/styles/form_page.css" %}'>
+<link rel="stylesheet" href='{% static "app/styles/generic.css" %}'>
+
+{% endblock %}
+
+{% block body %}
+<div class="impactwrapper">
+  <img src="/media/{{object.project_banner}}" alt="{{ object.project_name }}" id="impact">
+  <div class="impactdiv">
+</div>
+
+
+{% include "widgets/pre-constr.html" %}
+<div class="ui  divider"></div>
+<div class="ui segment" style="border: none;box-shadow:none;padding-bottom:72px;">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column" >
+        <div class="ui basic very padded segment">
+          <h2 class="ui dividing header">PROJECT INFORMATION </h2>
+          <br>
+        <table class="ui very basic collapsing celled striped very padded table  thetable" >
+          <tbody>
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui header" >
+                  <i class="building outline icon"></i>
+                </h4>
+              </td>
+              <td>
+                Project name
+              </td>
+              <td class="answers">
+                {{ object.project_name }}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui header" >
+                  <i class="map marker alternate icon" ></i>
+                </h4>
+              </td>
+              <td>
+                Location
+              </td>
+              <td class="answers">
+                {{ object.project_location }}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui logo header" >
+                  <i class="dollar icon"></i>
+              </h4>
+              <td>
+                Starting price
+              </td>
+            </td>
+              <td>
+                ${{ object.starts_at }}s
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing" style="align-items: end;" >
+                <h4 class="ui header" >
+                  <i class="calendar alternate outline icon"></i>
+              </h4>
+            </td>
+            <td>
+              Completion date
+            </td>
+              <td class="answers">
+                {{ object.completion_date|date:"F" }}, {{ object.completion_date|date:"Y" }}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui header" >
+                  <i class="building icon" ></i>
+                </h4>
+              </td>
+              <td>
+                Property type
+              </td>
+              <td class="answers">
+                {{ object.property_type }}
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui header" >
+                  <i class="expand icon"></i>
+                </h4>
+              </td>
+              <td>
+                Unit size range
+              </td>
+              <td class="answers">
+                {{ object.uni_size_lower }}
+                
+                {% if object.uni_size_upper %}
+                  sqft.  &nbsp; - &nbsp;  {{ object.uni_size_upper }} sqft.
+                {% else %}
+                + sqft.
+                {% endif %}
+                  
+              </td>
+            </tr>
+
+            <tr>
+              <td class="collapsing">
+                <h4 class="ui header" >
+                  <i class="money check alternate icon"></i>
+                </h4>
+              </td>
+              <td>
+                Deposit structure
+              </td>
+              <td class="answers">
+                {{ object.dep_struct | linebreaks }}
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+        </div>
+    </div>
+    <div class="column" style="display: flex; align-items:center; justify-content:center">
+      <img src="/media/{{object.project_co_banner}}" alt="{{ object.project_name }}" class="natural-shadow sideimg">
+    </div>
+  </div>
+</div>
+  <div class="ui two column very relaxed stackable grid darkdiv ">
+    <div class="column">
+      {% if object.project_desc %}
+      <div class="ui basic very padded inverted segment ">
+        <h1 class="ui dividing centered header">ABOUT {{ object.project_name | upper}}</h1>
+        <div class="ui clearing inverted divider"></div>
+          <div class="item">
+            {{ object.project_desc }}
+          </div>
+      </div>
+      {% endif %}
+      <div class="ui basic very padded inverted segment ">
+        <h1 class="ui dividing centered header">HIGHLIGHTS</h1>
+        <div class="ui clearing inverted divider"></div>
+        <div class="ui relaxed bulleted list">
+          {% for h in object.highlight.all %}
+            <div class="item">{{ h.feature }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="padded column">
+      <div class="ui basic very padded inverted segment" id="gallery">
+        <h1 class="ui dividing centered header">GALLERY</h1>
+        <div class="ui clearing inverted divider"></div>
+        {% load thumbnail %}
+  
+        <div class="image-bundle">
+          {% for image in object.gallery.all %}
+        <img src="{{ image.image | thumbnail_url:'gallery' }}" alt="{{ object.project_name }}" class="gallery-images">
+      
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "widgets/pre-constr.html" %}
+
+  
+
+
+{% endblock body %}
+{% block end_scripts %}
+<script>
+  $('.dropdown')
+  .dropdown();
+
+  $('.ui.form').form({
+    fields: {
+      first_name  : 'empty',
+      primary_email : 'empty',
+      primary_number  : 'empty',
+      are_you_a_realtor : 'empty',
+      are_you_working_with_a_realtor  : 'empty',
+    }
+  });
+  $(document).ready(function() {
+    $(document.body).css('padding-top',$('#nav').outerHeight())
+  })
+</script>
+{% endblock end_scripts %}
+        

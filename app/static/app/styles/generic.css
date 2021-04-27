@@ -1,0 +1,82 @@
+
+.darkdiv{
+    background-color: #1b1c1d;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap !important;
+    padding: 5%;
+    margin: 0px;
+}
+
+body{
+    margin: 0px;
+}
+.impactwrapper{
+    position: relative;
+}
+#impact{
+    margin: 0px;
+    object-fit: cover;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    object-position: center;
+}
+.answers{
+    font-size: 1em;
+}
+.ui  i{
+    margin-right: 0px !important;
+}
+
+.thetable *{
+    line-height: 1.5em !important;
+    font-size: 1.05em;
+}
+.striped.table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+
+.darkdiv .item{
+    font-size: 1.3em;
+    line-height: 1.3em !important;
+}
+.darkdiv  h1{
+    font-size: 2.4em ;
+}
+.sideimg{
+    width: auto;
+    max-width: 90%;
+    object-fit: cover;
+    object-position: center;
+    max-height: 720px;
+    border-radius: 2px;
+    margin: 30px;
+    margin:  auto;
+    box-sizing: border-box;
+    
+}
+.gallery-images{
+    border-radius: 4px;
+    height: auto;
+    margin: 0.75%;
+    aspect-ratio: 1 / 1 ;
+    width: 46%;
+    min-height: 200px;
+    min-width: 200px;
+    max-height: 400px;
+    max-width: 400px;
+    object-fit: cover;
+    object-position: center;
+    box-sizing: border-box;
+}
+
+.image-bundle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+}
